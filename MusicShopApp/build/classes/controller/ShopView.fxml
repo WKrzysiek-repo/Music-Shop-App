@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="543.0" prefWidth="743.0" scaleShape="false" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ShopController">
+   <children>
+      <TabPane layoutX="-2.0" layoutY="-4.0" prefHeight="543.0" prefWidth="745.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab onSelectionChanged="#initalize" text="Records">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="487.0" prefWidth="745.0">
+                     <children>
+                        <TabPane layoutX="-1.0" layoutY="-1.0" prefHeight="271.0" prefWidth="752.0" tabClosingPolicy="UNAVAILABLE">
+                          <tabs>
+                            <Tab text="Add records">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="383.0" prefWidth="626.0">
+                                       <children>
+                                          <TextField fx:id="txtNazwa" cache="true" layoutX="118.0" layoutY="40.0" promptText="Name" />
+                                          <Label layoutX="28.0" layoutY="44.0" prefHeight="17.0" prefWidth="80.0" text="Record name:" />
+                                          <Label layoutX="45.0" layoutY="81.0" prefHeight="17.0" prefWidth="48.0" text="Price:" />
+                                          <TextField fx:id="txtCena" layoutX="118.0" layoutY="77.0" promptText="Price" />
+                                          <Label layoutX="41.0" layoutY="118.0" prefHeight="17.0" prefWidth="57.0" text="Quantity:" />
+                                          <TextField fx:id="txtIlosc" layoutX="118.0" layoutY="114.0" prefHeight="25.0" prefWidth="149.0" promptText="Quantity" />
+                                          <TextField fx:id="txtAutorSearch" layoutX="531.0" layoutY="40.0" promptText="NAME / ID / YEAR" />
+                                          <Label layoutX="477.0" layoutY="44.0" prefHeight="17.0" prefWidth="43.0" text="Search" />
+                                          <Button layoutX="121.0" layoutY="181.0" mnemonicParsing="false" onAction="#insertPlyta" prefHeight="25.0" prefWidth="143.0" text="Add record" />
+                                          <Button fx:id="refreshButton" layoutX="14.0" layoutY="181.0" mnemonicParsing="false" onAction="#initalize" prefHeight="25.0" prefWidth="84.0" text="Refresh db" />
+                                          <Label layoutX="483.0" layoutY="81.0" text="ID:" />
+                                          <Label layoutX="471.0" layoutY="118.0" text="Name:" />
+                                          <Label layoutX="479.0" layoutY="158.0" text="Year:" />
+                                          <TextField fx:id="autorID" cache="true" editable="false" layoutX="531.0" layoutY="77.0" promptText="Nazwa" text="Author ID" />
+                                          <TextField fx:id="autorNazwa" cache="true" editable="false" layoutX="531.0" layoutY="114.0" promptText="Nazwa" text="Author name" />
+                                          <TextField fx:id="autorRok" cache="true" editable="false" layoutX="531.0" layoutY="154.0" promptText="Nazwa" text="Year of creation" />
+                                          <Label layoutX="143.0" layoutY="8.0" text="Records">
+                                             <font>
+                                                <Font name="System Bold Italic" size="17.0" />
+                                             </font></Label>
+                                          <Label layoutX="562.0" layoutY="8.0" text="Authors">
+                                             <font>
+                                                <Font name="System Bold Italic" size="17.0" />
+                                             </font></Label>
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </Tab>
+                            <Tab text="Update records">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <TextField fx:id="searchPlytaID" layoutX="280.0" layoutY="43.0" promptText="ID" />
+                                          <TextField fx:id="searchPlytacena" layoutX="280.0" layoutY="121.0" promptText="Price" />
+                                          <TextField fx:id="searchPlytailosc" layoutX="280.0" layoutY="160.0" promptText="Quantity" />
+                                          <Label layoutX="229.0" layoutY="47.0" prefHeight="17.0" prefWidth="24.0" text="ID :" />
+                                          <Label layoutX="215.0" layoutY="125.0" prefHeight="17.0" prefWidth="51.0" text="Price:" />
+                                          <Label layoutX="203.0" layoutY="164.0" prefHeight="17.0" prefWidth="50.0" text="Quantity:" />
+                                          <Button layoutX="287.0" layoutY="203.0" mnemonicParsing="false" onAction="#updatePlyty" prefHeight="25.0" prefWidth="136.0" text="Update record" />
+                                          <TableView fx:id="PlytyTable1" layoutX="1.0" layoutY="239.0" prefHeight="251.0" prefWidth="745.0">
+                                             <columns>
+                                                <TableColumn fx:id="colPlytyID1" prefWidth="64.0" text="id" />
+                                                <TableColumn fx:id="colPlytyNazwa1" prefWidth="182.0" text="nazwa" />
+                                                <TableColumn fx:id="colPlytyCena1" prefWidth="91.0" text="cena" />
+                                                <TableColumn fx:id="colPlytyIlosc1" minWidth="0.0" prefWidth="65.0" text="ilosc" />
+                                                <TableColumn fx:id="colAutorImie1" prefWidth="161.0" text="name" />
+                                                <TableColumn fx:id="colAutorNazwa1" prefWidth="172.0" text="year" />
+                                             </columns>
+                                          </TableView>
+                                          <Label layoutX="294.0" layoutY="8.0" text="Update records">
+                                             <font>
+                                                <Font name="System Bold Italic" size="17.0" />
+                                             </font></Label>
+                                          <Label layoutX="214.0" layoutY="84.0" text="Name:" />
+                                          <TextField fx:id="searchPlytaname" layoutX="280.0" layoutY="80.0" promptText="Name" />
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </Tab>
+                              <Tab text="Search record and author">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <Label layoutX="37.0" layoutY="48.0" text="Name" />
+                                          <Label layoutX="39.0" layoutY="94.0" text="Price:" />
+                                          <Label layoutX="29.0" layoutY="139.0" text="Quantity:" />
+                                          <Label layoutX="125.0" layoutY="15.0" text="Records">
+                                             <font>
+                                                <Font name="System Bold Italic" size="17.0" />
+                                             </font></Label>
+                                          <Label layoutX="540.0" layoutY="15.0" text="Authors">
+                                             <font>
+                                                <Font name="System Bold Italic" size="17.0" />
+                                             </font></Label>
+                                          <Label layoutX="462.0" layoutY="48.0" text="Name:" />
+                                          <Label layoutX="467.0" layoutY="94.0" text="Year:" />
+                                          <TextField fx:id="rSRecordName" layoutX="97.0" layoutY="44.0" promptText="Name" />
+                                          <TextField fx:id="rSRecordPrice" layoutX="97.0" layoutY="90.0" promptText="Price" />
+                                          <TextField fx:id="rSRecordQuantity" layoutX="97.0" layoutY="135.0" promptText="Quantity" />
+                                          <TextField fx:id="rSAuthorName" layoutX="510.0" layoutY="44.0" promptText="Name" />
+                                          <TextField fx:id="rSAuthorYear" layoutX="510.0" layoutY="90.0" promptText="Year" />
+                                          <Button layoutX="285.0" layoutY="169.0" mnemonicParsing="false" onAction="#search" prefHeight="25.0" prefWidth="131.0" text="Search records" />
+                                          <Button layoutX="312.0" layoutY="203.0" mnemonicParsing="false" onAction="#initalize" prefHeight="25.0" prefWidth="77.0" text="Refresh db" />
+                                       </children>
+                                    </AnchorPane>
+                                </content>
+                              </Tab>
+                          </tabs>
+                        </TabPane>
+                        <TableView fx:id="PlytyTable" layoutX="1.0" layoutY="270.0" prefHeight="251.0" prefWidth="743.0">
+                           <columns>
+                              <TableColumn fx:id="colPlytyID" prefWidth="71.0" text="id" />
+                              <TableColumn fx:id="colPlytyNazwa" prefWidth="175.0" text="Record name" />
+                              <TableColumn fx:id="colPlytyCena" prefWidth="96.0" text="Price" />
+                              <TableColumn fx:id="colPlytyIlosc" minWidth="0.0" prefWidth="106.0" text="Quantity" />
+                              <TableColumn fx:id="colAutorImie" prefWidth="142.0" text="Name" />
+                              <TableColumn fx:id="colAutorNazwa" prefWidth="147.0" text="Year" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab onSelectionChanged="#initalize2" text="Authors">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="AuthorsTable" layoutX="2.0" layoutY="273.0" prefHeight="241.0" prefWidth="743.0">
+                          <columns>
+                            <TableColumn fx:id="colAuthorsID" prefWidth="164.0" text="ID" />
+                            <TableColumn fx:id="colAuthorsName" prefWidth="292.0" text="Name" />
+                              <TableColumn fx:id="colAuthorsYear" prefWidth="279.0" text="Year" />
+                          </columns>
+                        </TableView>
+                        <TabPane layoutX="2.0" layoutY="-1.0" prefHeight="273.0" prefWidth="743.0" tabClosingPolicy="UNAVAILABLE">
+                          <tabs>
+                            <Tab text="Add authors">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <Label layoutX="217.0" layoutY="53.0" prefHeight="17.0" prefWidth="74.0" text="Name:" />
+                                          <Label layoutX="217.0" layoutY="101.0" prefHeight="17.0" prefWidth="96.0" text="Year:" />
+                                          <TextField fx:id="txtYear" layoutX="266.0" layoutY="97.0" promptText="Year" />
+                                          <TextField fx:id="txtName" layoutX="267.0" layoutY="49.0" promptText="Name" />
+                                          <Button layoutX="279.0" layoutY="151.0" mnemonicParsing="false" onAction="#insertAuthor" prefHeight="25.0" prefWidth="124.0" text="Add author" />
+                                          <Button layoutX="307.0" layoutY="190.0" mnemonicParsing="false" onAction="#initalize2" prefHeight="25.0" prefWidth="65.0" text="Refresh" />
+                                          <Label layoutX="291.0" layoutY="14.0" text="Add authors">
+                                             <font>
+                                                <Font name="System Bold Italic" size="17.0" />
+                                             </font></Label>
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </Tab>
+                            <Tab text="Update authors">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <Label layoutX="227.0" layoutY="91.0" text="Name:" />
+                                          <Label layoutX="232.0" layoutY="131.0" text="Year:" />
+                                          <TextField fx:id="searchAuthorNazwa" layoutX="280.0" layoutY="87.0" promptText="Name" />
+                                          <TextField fx:id="searchAuthorRok" layoutX="280.0" layoutY="127.0" promptText="Year" />
+                                          <Button layoutX="294.0" layoutY="165.0" mnemonicParsing="false" onAction="#updateAuthor" prefHeight="25.0" prefWidth="98.0" text="Update author" />
+                                          <Button layoutX="309.0" layoutY="205.0" mnemonicParsing="false" onAction="#initalize2" prefHeight="25.0" prefWidth="67.0" text="Refresh" />
+                                          <TextField fx:id="searchAuthorID" layoutX="280.0" layoutY="50.0" promptText="ID" />
+                                          <Label layoutX="238.0" layoutY="54.0" text="ID:" />
+                                          <Label layoutX="278.0" layoutY="14.0" prefHeight="26.0" prefWidth="129.0" text="Update authors">
+                                             <font>
+                                                <Font name="System Bold Italic" size="17.0" />
+                                             </font></Label>
+                                       </children></AnchorPane>
+                              </content>
+                            </Tab>
+                          </tabs>
+                        </TabPane>
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+         <tooltip>
+            <Tooltip text="Empty Tooltip" />
+         </tooltip>
+      </TabPane>
+   </children>
+</AnchorPane>
